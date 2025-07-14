@@ -4,7 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { GenericAuthenticationResponse, GenericStringMessageResponse } from '../models/GenericReponses.model';
 import { UserModel } from '../models/User.model';
 
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
     providedIn: 'root'
