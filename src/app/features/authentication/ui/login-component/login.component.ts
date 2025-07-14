@@ -44,6 +44,13 @@ export class LoginComponent {
       password: this.passwordControl.value ?? ''
     };
 
-    this.authService.signIn(body);
+    this.authService.signIn(body).subscribe({
+      next: (response) => {
+        console.log('Login successful', response);
+      },
+      error: (err) => {
+        console.error('Login failed', err);
+      }
+    });
   }
 }

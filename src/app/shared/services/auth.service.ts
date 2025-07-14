@@ -15,7 +15,7 @@ export class AuthService {
     // Maybe sign-up should be in a separate service, like a keycloak service
 
     signIn(body: UserModel): Observable<GenericAuthenticationResponse> {
-        return this.#http.post<GenericAuthenticationResponse>(`${environment.port}api/sign-in`, body).pipe(
+        return this.#http.post<GenericAuthenticationResponse>(`${environment.port}/api/sign-in`, body).pipe(
             tap((response: GenericAuthenticationResponse) => {
                 if (response.token) {
                     this.setToken(response.token);
