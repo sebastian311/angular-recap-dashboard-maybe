@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-
+import { CommonModule } from '@angular/common'; 
+import { LoginComponent } from '../../ui/login-component/login.component';
 @Component({
   selector: 'app-authentication-shell',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, LoginComponent],
   templateUrl: './authentication-shell.component.html',
   styleUrl: './authentication-shell.component.scss'
 })

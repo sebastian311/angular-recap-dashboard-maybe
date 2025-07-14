@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { GenericAuthenticationResponse, GenericStringMessageResponse } from '../models/GenericReponses.model';
@@ -10,12 +10,12 @@ import { environment } from '../../../environments/environment.development';
     providedIn: 'root'
 })
 export class AuthService {
-    constructor(private http: HttpClient) {}
+    #http: HttpClient = inject(HttpClient);
 
     // Maybe sign-up should be in a separate service, like a keycloak service
 
     signIn(body: UserModel): Observable<GenericAuthenticationResponse> {
-        return this.http.post<GenericAuthenticationResponse>(`${environment.port}api/sign-in`, body).pipe(
+        return this.#http.post<GenericAuthenticationResponse>(`${environment.port}api/sign-in`, body).pipe(
             tap((response: GenericAuthenticationResponse) => {
                 if (response.token) {
                     this.setToken(response.token);
@@ -25,7 +25,7 @@ export class AuthService {
     }
 
     logOut(): Observable<GenericStringMessageResponse> {
-        return this.http.post<GenericStringMessageResponse>(`${environment.port}api/sign-in`, {});
+        return this.#http.post<GenericStringMessageResponse>(`${environment.port}api/sign-out`, {});
     }
 
     setToken(token: string): void {
