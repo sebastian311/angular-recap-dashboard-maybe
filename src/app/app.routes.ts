@@ -7,6 +7,6 @@ export const routes: Routes = [
         path: '', 
         redirectTo: '/login', 
         pathMatch: 'full', 
-        loadComponent: () => import('./features/authentication/main-components/authentication-shell/authentication-shell.component').then(c => c.AuthenticationShellComponent)},
-    { path: '/home', }
+    },
+    { path: 'login', loadComponent: () => import('./features/authentication/main-components/authentication-shell/authentication-shell.component').then(c => c.AuthenticationShellComponent)},
 ];
