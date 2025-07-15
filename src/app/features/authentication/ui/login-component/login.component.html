@@ -44,4 +44,7 @@
         Login
         <mat-icon>arrow_forward</mat-icon>
     </button>
+    @if (!!loginErrorMessage()) {
+        <mat-error>{{ loginErrorMessage() }}</mat-error>
+    }
 </form>

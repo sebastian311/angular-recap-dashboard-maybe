@@ -8,4 +8,5 @@ export const routes: Routes = [
         pathMatch: 'full', 
     },
     { path: 'login', loadComponent: () => import('./features/authentication/main-components/authentication-shell/authentication-shell.component').then(c => c.AuthenticationShellComponent)},
+    { path: 'dashboard', loadComponent: () => import('./features/dashboard/main-components/dashboard-shell/dashboard-shell.component').then(c => c.DashboardShellComponent) },
 ];
