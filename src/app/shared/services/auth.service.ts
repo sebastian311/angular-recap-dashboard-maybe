@@ -25,7 +25,7 @@ export class AuthService {
     }
 
     logOut(): Observable<GenericStringMessageResponse> {
-        return this.#http.post<GenericStringMessageResponse>(`${environment.port}api/sign-out`, {});
+        return this.#http.post<GenericStringMessageResponse>(`${environment.port}/api/sign-out`, {});
     }
 
     setToken(token: string): void {

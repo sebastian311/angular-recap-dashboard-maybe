@@ -29,8 +29,6 @@ export class LoginComponent {
     password: this.passwordControl
   })
 
-  emailErrorMessage = signal('');
-  passwordErrorMessage = signal('');
   loginErrorMessage = signal('');
   hide = signal(true);
 
