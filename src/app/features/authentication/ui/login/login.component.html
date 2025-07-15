@@ -1,0 +1,50 @@
+<form class="flex flex-col items-center justify-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="w-70">
+        <mat-label>Enter your email</mat-label>
+        <input
+            matInput
+            placeholder="user@example.com"
+            [formControl]="emailControl"
+            required
+        />
+        @if (emailControl.hasError('required')) {
+            <mat-error>Email is required</mat-error>
+        }
+        @if (emailControl.hasError('email')) {
+            <mat-error>Please enter a valid email address</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field class="w-70">
+        <mat-label>Enter your password</mat-label>
+        <input 
+            matInput 
+            [type]="hide() ? 'password' : 'text'" 
+            [formControl]="passwordControl"
+            required
+        />
+        <button
+            mat-icon-button
+            matSuffix
+            (click)="showPasswordToggle($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+        >
+            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        @if (passwordControl.hasError('required')) {
+            <mat-error>Password is required</mat-error>
+        }
+        @if (passwordControl.hasError('pattern')) {
+            <mat-error>Password must be at least 8 characters long and contain at least one letter and one number</mat-error>
+        }
+    </mat-form-field>
+
+    <button mat-stroked-button extended class="flex flex-row items-center justify-center w-70" type="submit" [disabled]="loginForm.invalid">
+        Login
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
+    @if (!!loginErrorMessage()) {
+        <mat-error>{{ loginErrorMessage() }}</mat-error>
+    }
+</form>

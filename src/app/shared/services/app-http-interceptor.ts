@@ -24,6 +24,7 @@ export function mockAPIInterceptor(req: HttpRequest<unknown>, next: HttpHandlerF
   if (req.url.endsWith('/api/sign-in') && req.method === 'POST') {
     return new Observable<HttpEvent<unknown>>(subscriber => {
       subscriber.next(new HttpResponse({
+        status: 200,
         body: { token: 'mock-token' }
       }));
       subscriber.complete();
