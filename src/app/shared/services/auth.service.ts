@@ -24,7 +24,7 @@ export class AuthService {
         );
     }
 
-    logOut(): Observable<GenericStringMessageResponse> {
+    signOut(): Observable<GenericStringMessageResponse> {
         return this.#http.post<GenericStringMessageResponse>(`${environment.port}/api/sign-out`, {});
     }
 

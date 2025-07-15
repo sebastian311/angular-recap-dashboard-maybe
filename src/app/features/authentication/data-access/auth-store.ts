@@ -1,16 +1,16 @@
-import { computed, inject } from '@angular/core';
-import {
-  patchState,
-  signalStore,
-  withComputed,
-  withMethods,
-  withState,
-} from '@ngrx/signals';
-import { tapResponse } from '@ngrx/operators';
-import { AuthService } from '../../../shared/services/auth.service';
-import { pipe, switchMap, tap } from 'rxjs';
-import { GenericAuthenticationResponse } from '../../../shared/models/GenericReponses.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { computed, inject } from '@angular/core';
+import { tapResponse } from '@ngrx/operators';
+import {
+    patchState,
+    signalStore,
+    withComputed,
+    withMethods,
+    withState,
+} from '@ngrx/signals';
+import { tap } from 'rxjs';
+import { GenericAuthenticationResponse } from '../../../shared/models/GenericReponses.model';
+import { AuthService } from '../../../shared/services/auth.service';
 
 type AuthState = {
   token: string;
