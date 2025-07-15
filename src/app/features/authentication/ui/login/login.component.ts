@@ -40,14 +40,14 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    const loginResponse = firstValueFrom(this.authStore.login(this.emailControl.value ?? '', this.passwordControl.value ?? ''))
+    firstValueFrom(this.authStore.login(this.emailControl.value ?? '', this.passwordControl.value ?? ''))
       .then((response) => {
         if (response?.token) {
           this.router.navigate(['/dashboard']);
         }
       })
       .catch((error) => {
-        this.loginErrorMessage = error?.error?.message || 'Login failed. Please try again.';
+        this.loginErrorMessage.set(error?.error?.message || 'Login failed. Please try again.');
       })
   }
 }
