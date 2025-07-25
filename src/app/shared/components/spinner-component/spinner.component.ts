@@ -9,7 +9,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
   imports: [MatProgressSpinnerModule],
   templateUrl: './spinner.component.html',
   styleUrl: './spinner.component.scss',
-  providers: [ GlobalSpinnerService]
 })
 export class SpinnerComponent {
   private globalSpinnerService = inject(GlobalSpinnerService);
