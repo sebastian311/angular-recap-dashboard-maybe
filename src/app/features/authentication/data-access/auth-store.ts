@@ -2,13 +2,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { computed, inject } from '@angular/core';
 import { tapResponse } from '@ngrx/operators';
 import {
-    patchState,
-    signalStore,
-    withComputed,
-    withMethods,
-    withState,
+  patchState,
+  signalStore,
+  withComputed,
+  withMethods,
+  withState,
 } from '@ngrx/signals';
-import { delay, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { GenericAuthenticationResponse } from '../../../shared/models/GenericReponses.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { GlobalSpinnerService } from '../../../shared/services/global-spinner.service';
