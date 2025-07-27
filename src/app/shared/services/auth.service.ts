@@ -35,4 +35,10 @@ export class AuthService {
     getAuthToken(): string | null {
         return localStorage.getItem('Session Token');
     }
+
+    isAuthenticated(): boolean {
+        // TODO: Implement a more robust authentication check
+        // For now, we just check if the token exists in localStorage
+        return this.getAuthToken() !== null;
+    }
 }
