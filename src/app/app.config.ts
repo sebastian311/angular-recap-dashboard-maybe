@@ -10,7 +10,9 @@ import { AuthService } from './shared/services/auth.service';
 function initializeApp(authService: AuthService, router: Router) {
   return () => {
     if(authService.isAuthenticated()) {
-      router.navigate(['/dashboard']);
+      if(router.url !== '') {
+        router.navigate(['/dashboard']);
+      }
     } else {
       router.navigate(['/login']);
     }
